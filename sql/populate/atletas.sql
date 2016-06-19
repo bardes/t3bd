@@ -7,9 +7,9 @@ insert into atleta values ('a-5782', '739421585', 'Howard Foster', '2000-02-27',
 insert into atleta values ('a-4174', '929125017', 'Paul Elliott', '1998-08-01', 45.755, 1.036, 'M', 'vulputate ut ultrices vel augue', 'BRA', 'TEN');
 insert into atleta values ('a-5432', '775112300', 'Melissa Brown', '1980-12-22', 88.705, 1.084, 'F', 'in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor', 'FRA', 'JUD');
 insert into atleta values ('a-3085', '681744982', 'Martha Kennedy', '1975-06-20', 118.603, 1.052, 'F', 'montes nascetur ridiculus mus', 'CAN', 'ARC');
-insert into atleta values ('a-5407', '703879168', 'Christine Bradley', '1977-04-25', 85.559, 1.446, 'F', 'non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis', 'BRA', 'ARC');
+insert into atleta values ('a-5407', '703879168', 'Christine Bradley', '1977-04-25', 85.559, 1.446, 'F', 'non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis', 'BRA', 'TEN');
 insert into atleta values ('a-4858', '786935234', 'Evelyn Marshall', '1992-06-22', 87.418, 1.748, 'F', 'neque vestibulum eget vulputate ut', 'GBR', 'FOT');
-insert into atleta values ('a-3232', '546375563', 'Catherine Owens', '1979-03-19', 113.43, 1.509, 'F', 'nulla nisl nunc nisl duis', 'BRA', 'BAS');
+insert into atleta values ('a-3232', '546375563', 'Catherine Owens', '1979-03-19', 113.43, 1.509, 'F', 'nulla nisl nunc nisl duis', 'BRA', 'TEN');
 insert into atleta values ('a-5858', '411173528', 'Bobby Morgan', '1978-11-24', 55.994, 0.951, 'M', 'amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien', 'URY', 'JUD');
 insert into atleta values ('a-9327', '271082235', 'Lori Bryant', '1975-11-16', 56.003, 1.942, 'F', 'hac habitasse platea dictumst maecenas ut massa quis augue', 'ARG', 'TEN');
 insert into atleta values ('a-4549', '205703933', 'Anthony Mitchell', '1989-04-25', 90.665, 1.777, 'M', 'porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem', 'USA', 'SWM');
@@ -18,7 +18,7 @@ insert into atleta values ('a-4027', '385428569', 'Catherine Patterson', '1975-0
 insert into atleta values ('a-1536', '702824343', 'Marilyn Richards', '1979-03-10', 104.564, 1.502, 'F', 'in felis donec', 'FRA', 'TEN');
 insert into atleta values ('a-9565', '707351605', 'Ryan Hughes', '1986-07-03', 122.039, 1.648, 'M', 'maecenas tristique est et tempus semper est quam pharetra magna ac consequat', 'GBR', 'TEN');
 insert into atleta values ('a-3204', '175131566', 'Janet Ellis', '1996-02-28', 129.609, 1.609, 'F', 'dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan', 'ARG', 'JUD');
-insert into atleta values ('a-8734', '313943167', 'Shawn Garza', '1986-05-02', 98.401, 1.47, 'M', 'eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id', 'FRA', 'BAS');
+insert into atleta values ('a-8734', '313943167', 'Shawn Garza', '1986-05-02', 98.401, 1.47, 'M', 'eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id', 'FRA', 'TEN');
 insert into atleta values ('a-3993', '589811357', 'Howard Stevens', '1987-11-19', 74.856, 1.088, 'M', 'aenean fermentum donec ut mauris eget massa tempor', 'GBR', 'SWM');
 insert into atleta values ('a-1629', '207199422', 'Joseph Payne', '1981-05-01', 122.062, 1.294, 'M', 'dui vel nisl duis ac nibh fusce lacus purus aliquet', 'ARG', 'FOT');
 insert into atleta values ('a-1272', '852437855', 'Timothy Cox', '1995-10-09', 120.649, 1.486, 'M', 'nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci', 'CAN', 'TEN');
@@ -60,7 +60,7 @@ insert into atleta values ('a-4039', '439183035', 'Susan Lane', '1984-10-23', 12
 insert into atleta values ('a-3046', '648339555', 'Joyce Rivera', '1983-11-11', 90.111, 2.032, 'F', 'aenean sit', 'NLD', 'FOT');
 insert into atleta values ('a-9158', '770411243', 'Christina Pierce', '1992-02-15', 79.249, 1.409, 'F', 'eros suspendisse accumsan tortor quis', 'CAN', 'TEN');
 insert into atleta values ('a-4937', '767955690', 'Angela Young', '1987-05-02', 129.964, 0.972, 'F', 'elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum', 'CAN', 'FOT');
-insert into atleta values ('a-8950', '917093590', 'Roy Olson', '1978-10-17', 100.617, 0.821, 'M', 'justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo', 'BRA', 'BAS');
+insert into atleta values ('a-8950', '917093590', 'Roy Olson', '1978-10-17', 100.617, 0.821, 'M', 'justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo', 'BRA', 'TEN');
 insert into atleta values ('a-7252', '212720632', 'Earl Lynch', '1984-08-18', 81.843, 1.352, 'M', 'tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque', 'URY', 'TEN');
 insert into atleta values ('a-6373', '121757862', 'Frances Oliver', '1977-04-20', 71.081, 0.96, 'F', 'orci eget orci vehicula condimentum curabitur in libero ut massa', 'GBR', 'FOT');
 insert into atleta values ('a-9104', '461932415', 'Sandra Taylor', '2000-02-22', 84.559, 1.223, 'F', 'nullam orci pede venenatis non sodales sed tincidunt eu felis fusce', 'CAN', 'TEN');
@@ -86,7 +86,7 @@ insert into atleta values ('a-5145', '668500200', 'Shirley Montgomery', '1981-07
 insert into atleta values ('a-4654', '765058723', 'Janet Brooks', '1984-08-21', 82.636, 1.625, 'F', 'nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin', 'FRA', 'BAS');
 insert into atleta values ('a-4240', '956579289', 'Jessica Hanson', '1979-06-15', 67.094, 1.721, 'F', 'parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient', 'URY', 'ARC');
 insert into atleta values ('a-6503', '514299738', 'Virginia Lopez', '1990-07-24', 63.647, 1.358, 'F', 'imperdiet sapien urna pretium nisl ut volutpat', 'CAN', 'SWM');
-insert into atleta values ('a-3376', '542561526', 'Ryan Olson', '1982-05-07', 123.071, 2.152, 'M', 'cubilia curae duis faucibus accumsan odio curabitur', 'ARG', 'BAS');
+insert into atleta values ('a-3376', '542561526', 'Ryan Olson', '1982-05-07', 123.071, 2.152, 'M', 'cubilia curae duis faucibus accumsan odio curabitur', 'ARG', 'TEN');
 insert into atleta values ('a-1646', '884309156', 'Shirley Hernandez', '1988-07-24', 71.867, 0.999, 'F', 'orci luctus et ultrices', 'GBR', 'JUD');
 insert into atleta values ('a-7531', '973932395', 'George Gibson', '1991-08-03', 51.195, 1.811, 'M', 'vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis', 'ARG', 'ARC');
 insert into atleta values ('a-2869', '172842083', 'Eugene Gibson', '1987-03-29', 72.338, 2.16, 'M', 'id nulla', 'NLD', 'SWM');

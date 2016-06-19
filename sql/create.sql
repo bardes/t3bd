@@ -1,5 +1,3 @@
-set datestyle TO 'YMD';
-
 create table delegacao (
     -- Código do país como definido no padrão iso-3166-1
     sigla char(3) primary key,
@@ -44,7 +42,7 @@ create table local (
 
 create table modalidade_ind (
     codigo smallserial primary key,
-    nome_usual varchar(20) not null,
+    nome_usual varchar(30) not null,
     descricao text not null,
     atletas_por_evento smallint not null,
     esporte char(3) not null references esporte
@@ -52,7 +50,7 @@ create table modalidade_ind (
 
 create table modalidade_eq (
     codigo smallserial primary key,
-    nome_usual varchar(20) not null,
+    nome_usual varchar(30) not null,
     descricao text not null,
     atletas_por_equipe smallint not null,
     equipes_por_evento smallint not null,
@@ -108,4 +106,4 @@ create table compoe_time (
     "time" smallint references "time",
     posicao varchar(15),
     primary key (atleta, "time")
-)
+);
