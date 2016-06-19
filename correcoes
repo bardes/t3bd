@@ -1,0 +1,5 @@
+- Criado codigo p/ os espoertes
+- Passaportes não são únicos
+- Diversos valores foram marcados como NotNull
+- Idade foi trocado para data de nascimento
+- Sigla_Pais -> sigla
