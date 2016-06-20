@@ -1,8 +1,8 @@
-insert into delegacao values ('ARG', 'Argentina', 'Espanhol', 0, 0, 0, 0);
-insert into delegacao values ('BRA', 'Brasil', 'Português Brasileio', 0, 0, 0, 0);
-insert into delegacao values ('CAN', 'Canadá', 'Ingles, Francês', 0, 0, 0, 0);
-insert into delegacao values ('USA', 'Estados Unidos', 'Inglês', 0, 0, 0, 0);
-insert into delegacao values ('FRA', 'França', 'Francês', 0, 0, 0, 0);
-insert into delegacao values ('NLD', 'Holanda', 'Holandês, Inglês', 0, 0, 0, 0);
-insert into delegacao values ('GBR', 'Reino Unido', 'Inglês', 0, 0, 0, 0);
-insert into delegacao values ('URY', 'Uruguai', 'Espanhol', 0, 0, 0, 0);
+insert into delegacao (sigla, nome, linguas) values ('ARG', 'Argentina', 'Espanhol');
+insert into delegacao (sigla, nome, linguas) values ('BRA', 'Brasil', 'Português Brasileio');
+insert into delegacao (sigla, nome, linguas) values ('CAN', 'Canadá', 'Ingles, Francês');
+insert into delegacao (sigla, nome, linguas) values ('USA', 'Estados Unidos', 'Inglês');
+insert into delegacao (sigla, nome, linguas) values ('FRA', 'França', 'Francês');
+insert into delegacao (sigla, nome, linguas) values ('NLD', 'Holanda', 'Holandês, Inglês');
+insert into delegacao (sigla, nome, linguas) values ('GBR', 'Reino Unido', 'Inglês');
+insert into delegacao (sigla, nome, linguas) values ('URY', 'Uruguai', 'Espanhol');

@@ -3,7 +3,7 @@ create table delegacao (
     sigla char(3) primary key,
     nome varchar(40) not null,
     linguas text not null,
-    n_participantes integer not null,
+    n_participantes smallint default 0 not null,
     ouro smallint default 0 not null,
     prata smallint default 0 not null,
     bronze smallint default 0 not null
@@ -24,8 +24,8 @@ create table atleta (
     altura numeric(4, 3) not null,
     genero char(1) not null check (upper(genero) in ('M', 'F')),
     inabilidades text,
-    delegacao char(3) not null references delegacao,
-    esporte char(3) not null references esporte
+    delegacao char(3) not null references delegacao on delete cascade on update cascade,
+    esporte char(3) not null references esporte on delete cascade on update cascade
 );
 
 create table local (
@@ -45,7 +45,7 @@ create table modalidade_ind (
     nome_usual varchar(30) not null,
     descricao text not null,
     atletas_por_evento smallint not null,
-    esporte char(3) not null references esporte
+    esporte char(3) not null references esporte on delete cascade on update cascade
 );
 
 create table modalidade_eq (
@@ -54,56 +54,56 @@ create table modalidade_eq (
     descricao text not null,
     atletas_por_equipe smallint not null,
     equipes_por_evento smallint not null,
-    esporte char(3) not null references esporte
+    esporte char(3) not null references esporte on delete cascade on update cascade
 );
 
 create table "time" (
     id smallserial primary key,
     delegacao char(3) references delegacao,
-    modalidade smallint not null references modalidade_eq,
+    modalidade smallint not null references modalidade_eq on delete cascade on update cascade,
     genero char(1) not null check (upper(genero) in ('M', 'F')),
     unique (delegacao, modalidade, genero)
 );
 
 create table evento_ind (
     id smallserial primary key,
-    local smallint not null references local,
+    local smallint not null references local on delete cascade on update cascade,
     data_hora timestamp not null,
     duracao interval not null,
     fase smallint not null,
     genero char(1) not null check (upper(genero) in ('M', 'F')),
-    modalidade smallint not null references modalidade_ind,
+    modalidade smallint not null references modalidade_ind on delete cascade on update cascade,
     unique (local, data_hora)
 );
 
 create table evento_eq (
     id smallserial primary key,
-    local smallint not null references local,
+    local smallint not null references local on delete cascade on update cascade,
     data_hora timestamp not null,
     duracao interval not null,
     fase smallint not null,
     genero char(1) not null check (upper(genero) in ('M', 'F')),
-    modalidade smallint not null references modalidade_eq,
+    modalidade smallint not null references modalidade_eq on delete cascade on update cascade,
     unique (local, data_hora)
 );
 
 create table atleta_participa (
-    evento smallint references evento_ind,
-    atleta char(10) references atleta,
+    evento smallint references evento_ind on delete cascade on update cascade,
+    atleta char(10) references atleta on delete cascade on update cascade,
     classificacao smallint,
     primary key (evento, atleta)
 );
 
 create table time_participa (
-    evento smallint references evento_eq,
-    "time" smallint references "time",
+    evento smallint references evento_eq on delete cascade on update cascade,
+    "time" smallint references "time" on delete cascade on update cascade,
     classificacao smallint,
     primary key (evento, "time")
 );
 
 create table compoe_time (
-    atleta char(10) references atleta,
-    "time" smallint references "time",
+    atleta char(10) references atleta on delete cascade on update cascade,
+    "time" smallint references "time" on delete cascade on update cascade,
     posicao varchar(15),
     primary key (atleta, "time")
 );
