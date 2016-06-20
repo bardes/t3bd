@@ -1,0 +1,80 @@
+{% extends "paralympics/tabela.html" %}
+
+{% block titulo %}
+Atletas
+{% endblock titulo %}
+
+{% block cabecalho %}
+<th>País</th>
+<th>Nome</th>
+<th>Gênero</th>
+<th>Esporte</th>
+{% endblock cabecalho %}
+
+{% block pre %}
+<form  action="{% url 'atletas' %}" class="form-inline text-center" style="margin: .5em auto">
+    <div class="form-group" style="margin: 0 .5em">
+        <label for="delecacao">Delegação</label>
+        <select class="form-control" id="delecacao" name="d">
+            <option value="">TODAS</option>
+            {% for delegacao in delegacoes %}
+            {% if delegacao.sigla == request.GET.d %}
+            <option selected value="{{ delegacao.sigla }}">{{ delegacao.nome }}</option>
+            {% else %}
+            <option value="{{ delegacao.sigla }}">{{ delegacao.nome }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group" style="margin: 0 .5em">
+        <label for="genero">Gênero</label>
+        <select class="form-control" id="genero" name="g">
+            {% if request.GET.g == 'M' %}
+            <option value="">TODOS</option>
+            <option selected value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            {% elif request.GET.g == 'F' %}
+            <option value="">TODOS</option>
+            <option value="M">Masculino</option>
+            <option selected value="F">Feminino</option>
+            {% else %}
+            <option selected value="">TODOS</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="form-group" style="margin: 0 .5em">
+        <label for="esporte">Esporte</label>
+        <select class="form-control" id="esporte" name="e">
+            <option selected value="">TODOS</option>
+            {% for esporte in esportes %}
+            {% if esporte.codigo == request.GET.e %}
+            <option selected value="{{ esporte.codigo }}">{{ esporte.nome }}</option>
+            {% else %}
+            <option value="{{ esporte.codigo }}">{{ esporte.nome }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+{% endblock pre %}
+
+{% block dados %}
+{% for atleta in atletas %}
+<tr>
+    <td>
+        <div class="flag {{ atleta.delegacao }}"></div>
+        {{ atleta.delegacao_nome }}
+    </td>
+    <td>
+        <a href="{% url 'atleta' atleta.registro_olimp  %}">
+            {{ atleta.nome }}
+        </a>
+    </td>
+    <td>{{ atleta.genero }}</td>
+    <td>{{ atleta.esporte }}</td>
+</tr>
+{% endfor %}
+{% endblock dados %}

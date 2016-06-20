@@ -12,12 +12,12 @@ create table delegacao (
 create table esporte (
     codigo char(3) primary key check (codigo ~* '^[a-z]{3}$'),
     nome varchar(15) unique not null,
-    trivia text
+    ano_intro smallint
 );
 
 create table atleta (
-    registro_olimp char(10) primary key,
-    passaporte char(10) not null,
+    registro_olimp varchar(10) primary key,
+    passaporte varchar(10) not null,
     nome varchar(50) not null,
     data_nasc date not null check (age('2016-08-05', data_nasc) >= interval '16 years'),
     peso numeric(6, 3) not null,
@@ -89,7 +89,7 @@ create table evento_eq (
 
 create table atleta_participa (
     evento smallint references evento_ind on delete cascade on update cascade,
-    atleta char(10) references atleta on delete cascade on update cascade,
+    atleta varchar(10) references atleta on delete cascade on update cascade,
     classificacao smallint,
     primary key (evento, atleta)
 );
@@ -102,7 +102,7 @@ create table time_participa (
 );
 
 create table compoe_time (
-    atleta char(10) references atleta on delete cascade on update cascade,
+    atleta varchar(10) references atleta on delete cascade on update cascade,
     "time" smallint references "time" on delete cascade on update cascade,
     posicao varchar(15),
     primary key (atleta, "time")

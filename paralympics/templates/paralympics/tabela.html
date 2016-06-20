@@ -1,0 +1,41 @@
+{% extends "paralympics/base.html" %}
+
+{% load staticfiles %}
+
+{% block style %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "paralympics/flags-all.css" %}">
+<style type="text/css" media="screen">
+.flag {
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url({% static "paralympics/all-flags-sprite.png" %});
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 20px;
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>{% block titulo %}Título!{% endblock titulo %}</h1>
+    {% block pre %}
+    {% endblock pre %}
+    <table class="table table-condensed table-striped table-bordered table-hover table-response">
+        <thead>
+            <tr>
+                {% block cabecalho %}
+                <tr>Campo - 1</tr>
+                <tr>Campo - 2</tr>
+                <tr>Campo - 3</tr>
+                {% endblock cabecalho %}
+            </tr>
+        </thead>
+        {% block dados %}
+        {% endblock dados %}
+    </table>
+    {% block pos %}
+    {% endblock pos %}
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "paralympics/tabela.html" %}
+
+{% block titulo %}
+Ranking dos Países
+{% endblock titulo %}
+
+{% block cabecalho %}
+<th>Colocação</th>
+<th>País</th>
+<th>Ouro</th>
+<th>Prata</th>
+<th>Bronze</th>
+{% endblock cabecalho %}
+
+{% block dados %}
+    {% for pais in paises %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><div class="flag {{ pais.sigla }}"></div> {{ pais.nome }}</td>
+        <td>{{ pais.ouro }}</td>
+        <td>{{ pais.prata }}</td>
+        <td>{{ pais.bronze }}</td>
+    </tr>
+    {% endfor %}
+{% endblock  %}
