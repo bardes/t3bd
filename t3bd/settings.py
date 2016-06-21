@@ -26,7 +26,7 @@ SECRET_KEY = '$i6-j$$szg*jwhf-=hjs$0j=pnqdsx!kt-ttn!73mx$c)g+0mh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [t3bd.herokuapp.com]
+ALLOWED_HOSTS = ['t3bd.herokuapp.com']
 
 # Application definition
 INSTALLED_APPS = [
