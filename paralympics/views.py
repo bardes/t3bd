@@ -9,7 +9,7 @@ def ranking(request):
 
 def atleta(request, id):
     a = Atleta.objects.Info(id)
-    if a == 0:
+    if not a:
         raise Http404("Atleta não existe!")
 
     context = {}
