@@ -5,17 +5,17 @@ Ranking dos Países
 {% endblock titulo %}
 
 {% block cabecalho %}
-<th>Colocação</th>
-<th>País</th>
-<th>Ouro</th>
-<th>Prata</th>
-<th>Bronze</th>
+<th class="col-sm-1" style="text-align: right">Colocação</th>
+<th class="col-sm-3">País</th>
+<th class="col-sm-1">Ouro</th>
+<th class="col-sm-1">Prata</th>
+<th class="col-sm-1">Bronze</th>
 {% endblock cabecalho %}
 
 {% block dados %}
     {% for pais in paises %}
     <tr>
-        <td>{{ forloop.counter }}</td>
+        <td style="text-align: right">{{ forloop.counter }}</td>
         <td><div class="flag {{ pais.sigla }}"></div> {{ pais.nome }}</td>
         <td>{{ pais.ouro }}</td>
         <td>{{ pais.prata }}</td>

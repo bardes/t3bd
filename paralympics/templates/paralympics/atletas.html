@@ -9,6 +9,7 @@ Atletas
 <th>Nome</th>
 <th>Gênero</th>
 <th>Esporte</th>
+<th>Medalhas</th>
 {% endblock cabecalho %}
 
 {% block pre %}
@@ -75,6 +76,7 @@ Atletas
     </td>
     <td>{{ atleta.genero }}</td>
     <td>{{ atleta.esporte }}</td>
+    <td>{{ atleta.medalhas }}</td>
 </tr>
 {% endfor %}
 {% endblock dados %}

@@ -21,8 +21,26 @@ def querry(q, params=None):
 class DelegacaoManager(models.Manager):
     def Ranking(self):
         q = """
-        select sigla, nome, ouro, prata, bronze from delegacao
-        order by ouro, prata, bronze;
+        select u.sigla, u.nome,
+        count(case when u.fase=0  and u.classificacao=1 then true else null end) as ouro,
+        count(case when u.fase=0  and u.classificacao=2 then true else null end) as prata,
+        count(case when u.fase=-1 and u.classificacao=1 then true else null end) as bronze
+        from
+        (
+        select d.sigla, d.nome, ee.fase, tp.classificacao
+        from delegacao d
+        left join time t on t.delegacao = d.sigla
+        left join time_participa tp on tp.time = t.id
+        left join evento_eq ee on ee.id = tp.evento
+        union all
+        select d.sigla, d.nome, ei.fase, ap.classificacao
+        from delegacao d
+        left join atleta a on a.delegacao = d.sigla
+        left join atleta_participa ap on ap.atleta = a.registro_olimp
+        left join evento_ind ei on ei.id = ap.evento
+        ) as u
+        group by u.sigla, u.nome
+        order by ouro desc, prata desc, bronze desc;
         """
         return querry(q)
 
@@ -52,29 +70,49 @@ class AtletaManager(models.Manager):
 
         q = """
         select a.registro_olimp, a.genero, a.nome, a.delegacao,
-        d.nome as delegacao_nome, e.nome as esporte from atleta a
+        d.nome as delegacao_nome, e.nome as esporte,
+        count(case when (ei.fase= 0 and ap.classificacao in (1, 2))
+                     or (ei.fase=-1 and ap.classificacao = 1)
+              then true else null end) as medalhas
+        from atleta a
         join delegacao d on d.sigla = a.delegacao
         join esporte e on e.codigo = a.esporte
+        left join atleta_participa ap on ap.atleta = a.registro_olimp
+        left join evento_ind ei on ei.id = ap.evento
         where
-        (%s or delegacao = %s) and
-        (%s or genero = %s) and
-        (%s or esporte = %s)
+        (%s or a.delegacao = %s) and
+        (%s or a.genero = %s) and
+        (%s or a.esporte = %s)
+        group by a.registro_olimp, a.genero, a.nome, a.delegacao, d.nome, e.nome
         order by delegacao_nome, a.nome;
         """
         return querry(q, [skipDeleg, delegacao, skipGenero, genero, skipEsporte, esporte])
 
     def Info(self, id):
         q = """
-        select a.*, d.nome as delegacao_nome,
-        e.nome as esporte_nome from atleta a
+        select a.*, d.nome as delegacao_nome, e.nome as esporte_nome,
+        cast(floor(extract(year from age(now(), a.data_nasc))) as integer) as idade
+        from atleta a
         join esporte e on e.codigo = a.esporte
         join delegacao d on d.sigla = a.delegacao
         where a.registro_olimp = %s;
         """
-        return querry(q, [id])
+        r = querry(q, [id])
+        return len(r) == 1 and r[0] or None
 
     def Medalhas(self, id):
-        return (0, 0, 0)
+        q = """
+        select
+        count(case when ei.fase=0 and ap.classificacao=1 then true else null end) as ouro,
+        count(case when ei.fase=0 and ap.classificacao=2 then true else null end) as prata,
+        count(case when ei.fase=-1 and ap.classificacao=1 then true else null end) as bronze
+        from atleta_participa ap 
+        join evento_ind ei on ei.id = ap.evento
+        where ap.atleta = %s
+        group by ap.atleta;
+        """
+        r = querry(q, [id])
+        return len(r) == 1 and r[0] or {'ouro': 0, 'prata': 0, 'bronze': 0}
 
 
 class Atleta(models.Model):

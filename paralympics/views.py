@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from .models import Delegacao, Atleta, Esporte
+from django.http import Http404
 
-# Create your views here.
 def ranking(request):
     p = Delegacao.objects.Ranking()
 
     return render(request, 'paralympics/ranking.html', {'paises': p})
 
 def atleta(request, id):
+    a = Atleta.objects.Info(id)
+    if a == 0:
+        raise Http404("Atleta não existe!")
+
     context = {}
-    context['atleta'] = Atleta.objects.Info(id)
+    context['atleta'] = a
     context['medalhas'] = Atleta.objects.Medalhas(id)
     return render(request, 'paralympics/atleta.html', context)
 

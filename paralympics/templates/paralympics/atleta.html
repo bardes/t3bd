@@ -1,0 +1,70 @@
+{% extends "paralympics/base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Dados Cadastrais</h2>
+        
+        <dl class="dl-horizontal">
+            <dt>Registro Olímpico:</dt>
+            <dd>{{ atleta.registro_olimp }}</dd>
+        
+            <dt>Nome:</dt>
+            <dd>{{ atleta.nome }}</dd>
+        
+            <dt>Data de Nascimento:</dt>
+            <dd>{{ atleta.data_nasc | date:'d/m/Y'}} ({{ atleta.idade }} anos)</dd>
+        
+            <dt>Delegação:</dt>
+            <dd>
+                <div class="flag {{ atleta.delegacao }}"></div>
+                {{ atleta.delegacao_nome }}
+            </dd>
+        
+            <dt>Esporte:</dt>
+            <dd>{{ atleta.esporte_nome }}</dd>
+        </dl>
+    </div>
+    
+    <div class="col-sm-6">
+        <h2>Dados Físicos</h2>
+        
+        <dl class="dl-horizontal display-2">
+            <dt>Gênero</dt>
+            <dd>{{ atleta.genero }}</dd>
+        
+            <dt>Altura:</dt>
+            <dd>{{ atleta.altura }}m</dd>
+        
+            <dt>Peso:</dt>
+            <dd>{{ atleta.peso }}kg</dd>
+        
+            <dt>Inabilidades:</dt>
+            <dd>{{ atleta.inabilidades }}</dd>
+        </dl>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 text-center">
+        <h1>Medalhas (Individuais)</h1>
+        <table class="table table-bordered table-response">
+            <thead>
+                <tr>
+                    <td class="col-sm-1" style="background-color: #FF3;">Ouro</td>
+                    <td class="col-sm-1" style="background-color: #BBB;">Prata</td>
+                    <td class="col-sm-1" style="background-color: #FA3;">Bronze</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style="background-color: #FFB;">{{ medalhas.ouro }}</td>
+                <td style="background-color: #EEE;">{{ medalhas.prata }}</td>
+                <td style="background-color: #FDa;">{{ medalhas.bronze }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+{% endblock content %}
